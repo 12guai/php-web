@@ -3,6 +3,7 @@ error_reporting(0);
 header('Content-type:text/html;charset=utf-8'); 
 include 'head.php';
 include 'data/bangdan.php';
+include 'system/tongji.php'
 $index='active';
 ?>
 <title><?php echo $mkcms_seoname;?></title>
