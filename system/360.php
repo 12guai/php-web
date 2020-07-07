@@ -1,0 +1,20 @@
+<?php
+error_reporting(0);
+header('Content-Type:text/html;charset=UTF-8');
+$cat=$_GET['cat'];//类型
+$year=intval($_GET['year']);//年份
+if($year==0)$year='all';
+$area=$_GET['area'];//地区
+$act=$_GET['act'];//主演
+$rank=$_GET['rank'];//火热
+$pageno=intval($_GET['pageno']);
+if($pageno==0){$pageno=1;}//页数
+if($year==''){$year='all';}
+if($cat==''){$cat='all';}
+if($area==''){$area='all';}
+if($act==''){$act='all';}
+if($leixing=="dongman"){$wangzhi=$mkcms_domain."getlist.php?leixing=$leixing&cat=$cat&year=$year&area=$area&rank=$rank&pageno=$pageno";}
+else{$wangzhi=$mkcms_domain."getlist.php?leixing=$leixing&cat=$cat&year=$year&area=$area&act=$act&rank=$rank&pageno=$pageno";}
+$list=json_decode(file_get_contents($wangzhi),true);
+$pagecount = $list['page']['pagecount'];
+?>
